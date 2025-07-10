@@ -78,7 +78,7 @@
         </profile>
     </profiles>
 <scm>
-    <connection>scm:git:https://github.com/kalyanreddyc/first-demo.git</connection>
+    <connection>scm:git:https://github.com/kiran-star/Release-Maven.git</connection>
     <tag>v1.1</tag>
   </scm>
 
