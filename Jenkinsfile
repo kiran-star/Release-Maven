@@ -7,8 +7,7 @@ pipeline {
     stages {
     //    stage('checkout') {
       //      steps {
-       //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kalyanreddyc/first-demo.git']])
-        //    }
+       //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kiran-star/Release-Maven.git']]) //    }
         //}
         stage('Print'){
             steps{
