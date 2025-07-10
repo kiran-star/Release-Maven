@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.drilldevops</groupId>
+  <artifactId>first-demo-jar</artifactId>
+  <packaging>jar</packaging>
+  <version>1.2-SNAPSHOT</version>
+  <name>first-demo-jar</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version> <!-- Use a suitable version -->
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.drilldevops.App</mainClass> <!-- Specify your main class here -->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+           
+       <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.7.0.1746</version>
+      </plugin>
+	 
+     <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-release-plugin</artifactId>
+	    <version>3.0.1</version> <!-- Ensure you're using the latest or a stable version -->
+	    <configuration>
+	        <tagNameFormat>v@{project.version}</tagNameFormat> <!-- Customize tag format -->
+	        <releaseVersion>1.1</releaseVersion> <!-- Set release version manually if needed -->
+	        <developmentVersion>1.2-SNAPSHOT</developmentVersion> <!-- Set next development version -->
+	        <autoVersionSubmodules>true</autoVersionSubmodules> <!-- Handle multi-module projects -->
+	        <pushChanges>true</pushChanges> <!-- Opt to not push changes automatically -->
+	        <localCheckout>true</localCheckout> <!-- Use a local checkout instead of remote -->
+	        <!-- SCM credentials, consider environment variables or settings.xml for security -->
+	        <scmCommentPrefix>[maven-release-plugin] </scmCommentPrefix> <!-- Custom prefix for SCM comments -->
+	        <!-- Example for SCM credentials if needed (use securely) -->
+	    </configuration>
+   </plugin>
+
+
+    </plugins>
+  </build>
+
+        <profiles>
+        <profile>
+            <id>snapshot</id>
+            <activation>
+                <property>
+                    <name>env.BUILD_TYPE</name>
+                    <value>SNAPSHOT</value>
+                </property>
+            </activation>
+        </profile>
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>env.BUILD_TYPE</name>
+                    <value>RELEASE</value>
+                </property>
+            </activation>
+        </profile>
+    </profiles>
+<scm>
+    <connection>scm:git:https://github.com/kalyanreddyc/first-demo.git</connection>
+    <tag>HEAD</tag>
+  </scm>
+
+</project>
