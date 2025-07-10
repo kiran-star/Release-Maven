@@ -3,7 +3,7 @@
   <groupId>com.drilldevops</groupId>
   <artifactId>first-demo-jar</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <name>first-demo-jar</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -73,7 +73,7 @@
     </profiles>
 <scm>
     <connection>scm:git:https://github.com/kiran-star/Release-Maven.git</connection>
-    <tag>v1.1</tag>
+    <tag>v1.2</tag>
   </scm>
 
 </project>
