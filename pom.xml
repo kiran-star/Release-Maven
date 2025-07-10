@@ -3,7 +3,7 @@
   <groupId>com.drilldevops</groupId>
   <artifactId>first-demo-jar</artifactId>
   <packaging>jar</packaging>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
   <name>first-demo-jar</name>
   <url>http://maven.apache.org</url>
   <dependencies>
