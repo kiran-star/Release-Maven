@@ -44,6 +44,7 @@ pipeline {
                         ls
                         ls -ltr
                         """
+                        echo 'Jenkins Multibranch Pipeline'
                         }
                     }
                 }
