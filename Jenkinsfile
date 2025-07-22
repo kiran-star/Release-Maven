@@ -22,6 +22,7 @@ pipeline {
                         git 'https://github.com/kiran-star/Release-Maven.git'
                         sh """
                         pwd
+                        ls
                         ls -ltr
                         """
                         }
