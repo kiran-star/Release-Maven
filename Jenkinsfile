@@ -1,20 +1,50 @@
 pipeline {
-       agent any
-    //   agent {
-     //      label 'test'
-      // }
-
-    stages {
-    //    stage('checkout') {
-      //      steps {
-       //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kiran-star/Release-Maven.git']]) //    }
-        //}
-        stage('Print'){
-            steps{
-        sh '''ls -ltr
-        touch test.txt
-        mkdir drilldevops'''
+    agent {
+        label 'LabelSlave'
+    }
+    options{
+        disableConcurrentBuilds()
+    }
+    environment{
+        WRS = '/home/jenkins/jenkins-agent/workspace/Pipeline-Project'
+    }
+    stages{
+        stage('Preparation-Stage'){
+            parallel{
+                /*
+                   stage('Preparation'){
+                    agent {
+                        label 'LabelSlave'
+                    }
+                    steps{
+                        dir("$WRS"){
+                        echo "Cloning Git Repo"
+                        git 'https://github.com/kiran-star/Release-Maven.git'
+                        sh """
+                        pwd
+                        ls -ltr
+                        """
+                        }
+                    }
+                }
+                */
+                stage('Perform'){
+                    agent{
+                        label 'LabelSlave'
+                    }
+                    steps{
+                        // mvn clean package
+                        //java -jar /home/jenkins/jenkins-agent/workspace/Parallel-Proj/target/first-demo-jar-1.0.jar
+                        dir("$WRS"){
+                        sh """
+                        mvn clean package
+                        pwd
+                        ls -ltr
+                        """
+                        }
+                    }
+                }
             }
-        }
+        }    
     }
 }
