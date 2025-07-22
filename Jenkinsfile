@@ -39,6 +39,7 @@ pipeline {
                         sh """
                         mvn clean package
                         pwd
+                        ls
                         ls -ltr
                         """
                         }
