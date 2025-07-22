@@ -20,6 +20,7 @@ pipeline {
                         dir("$WRS"){
                         echo "Cloning Git Repo"
                         git 'https://github.com/kiran-star/Release-Maven.git'
+                        echo 'Git-Webhook'
                         sh """
                         pwd
                         ls
