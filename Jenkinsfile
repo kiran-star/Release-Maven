@@ -26,6 +26,7 @@ pipeline {
                         ls
                         ls -ltr
                         """
+                        echo 'Multibranch Pipeline'
                         }
                     }
                 }
